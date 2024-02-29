@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../model/product';
 
 @Component({
@@ -7,6 +7,11 @@ import { Product } from '../model/product';
   styleUrl: './product.component.css'
 })
 export class ProductComponent {
-
   @Input({required: true}) data!: Product ;
+
+  @Output() totalSend = new EventEmitter<number>();
+
+  addToBasket () {
+    this.totalSend.emit(this.data.price)
+  }
 }

@@ -4,20 +4,20 @@
 <main class="py-4 container">
   <header class="p-4 mb-4 bg-light rounded-3">
     <h1>Bienvenue sur Zenika Ecommerce</h1>
-    <p>Votre panier s'élève à 0,00 €</p>
+    <p>Votre panier s'élève à {{total}} €</p>
     <p class="mb-0"><a class="btn btn-primary btn-large">Voir mon panier</a></p>
   </header>
 
   <h2 class="h4">Catalogue</h2>
 
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    <app-product [data]="Products[0]" />
+    <app-product [data]="Products[0]" (totalSend)="updatePrice($event)"/>
     
-    <app-product [data]="Products[1]" />
+    <app-product [data]="Products[1]" (totalSend)="updatePrice($event)"/>
 
-    <app-product [data]="Products[2]" />
+    <app-product [data]="Products[2]" (totalSend)="updatePrice($event)"/>
 
-    <app-product [data]="Products[3]" />
+    <app-product [data]="Products[3]" (totalSend)="updatePrice($event)"/>
   </div>
 </main>
 

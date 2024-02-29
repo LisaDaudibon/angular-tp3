@@ -5,10 +5,11 @@ import { Product } from './model/product';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
+
 })
 export class AppComponent {
   total : number = 0;
-  
+
   Products: Product[] = [
     {photo: "/assets/coding-the-welsch.jpg", title: "Tee-shirt col rond - Homme", description: "Coding the welsch", price: 20 },
     { photo: "/assets/coding-the-world.jpg", title: "Tee-shirt col rond - Homme", description:"Coding the world", price: 18 },
@@ -16,4 +17,7 @@ export class AppComponent {
     {photo: "/assets/coding-the-snow.jpg", title: "Tee-shirt col rond - Femme", description: "Coding the snow", price: 19}
   ]
 
+  updatePrice (value: number) : void {
+    this.total = this.total + value;
+  }
 }

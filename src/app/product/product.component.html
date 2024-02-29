@@ -10,8 +10,8 @@
             <h3 class="h6 card-title">
                 <a class="card-link">{{data.description}}</a>
             </h3>
-            <p class="card-text">{{data.price}}</p>
-            <button class="btn btn-primary">Ajoutez au panier</button>
+            <p class="card-text">{{data.price}} €</p>
+            <button class="btn btn-primary" (click)="addToBasket()">Ajoutez au panier</button>
         </div>
     </div>
     <!-- End of Extract to "src/app/product/product.component.html" -->

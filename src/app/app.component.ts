@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'firstproject';
+  title : string = `${project} ${today.toLocaleDateString("fr")} app is running`;
 }
+
+const project = `firstproject`
+const today = new Date();

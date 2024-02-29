@@ -1,27 +1,35 @@
-# Firstproject
+![Angular](./Angular.png)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+# TP2 Tests
 
-## Development server
+## 1 - Lancer les tests
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+On va lancer les tests dans notre projet :
 
-## Code scaffolding
+```bash
+ng test
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Les tests doivent tous passer ! 🎉
 
-## Build
+Les tests démarrent en mode **watching**. Si vous modifiez un test et / ou les sources, les tests impactées seront automatiquement relancés.  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Pour quitter le mode test => `CTRL + C`
 
-## Running unit tests
+Regardez comment les tests sont écrit dans le fichier : `app.component.spec.ts`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 2 - Modification d'un test
 
-## Running end-to-end tests
+Modifier le `title` dans le composant `app.component.ts` en :
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+<mon_nom_de_projet> <date_du_jour sous le format dd/MM/yyyy> app is running!
+```
 
-## Further help
+Pour récupérer la date du jour => `new Date()`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Vous pouvez trouver des informations sur cette API [ici](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date)
+
+Modifier le test pour qu'il passe de nouveau au vert.
+
+Nous allons continuer à ajouter / modifier des tests tout au long des différents TPS.

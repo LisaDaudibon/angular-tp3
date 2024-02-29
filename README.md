@@ -1,4 +1,4 @@
-![Angular](./Angular.png)
+![Angular](./angular.png)
 
 # TP3 Composant
 

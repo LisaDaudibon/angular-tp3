@@ -1,0 +1,18 @@
+
+<div class="col">
+    <!-- Extract to "src/app/product/product.component.html" -->
+    <div class="card h-100 text-center">
+        <img class="card-img-top" [src]="data.photo" alt="Product image" />
+        <div class="card-header">
+            <small>{{data.title}}</small>
+        </div>
+        <div class="card-body">
+            <h3 class="h6 card-title">
+                <a class="card-link">{{data.description}}</a>
+            </h3>
+            <p class="card-text">{{data.price}}</p>
+            <button class="btn btn-primary">Ajoutez au panier</button>
+        </div>
+    </div>
+    <!-- End of Extract to "src/app/product/product.component.html" -->
+</div>

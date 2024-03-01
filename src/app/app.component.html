@@ -11,9 +11,11 @@
   <h2 class="h4">Catalogue</h2>
 
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    <div  *ngFor="let product of products; trackBy: trackByProductId" class="col">
-      <app-product [data]="product" (totalSend)="updatePrice($event)"/>
-    </div>
+    <ng-container *ngFor="let product of products; trackBy: trackByProductId">
+      <div *ngIf="product.stock" class="col">
+        <app-product [data]="product" (totalSend)="updatePrice($event)"/>
+      </div>
+    </ng-container>
   </div>
 </main>
 

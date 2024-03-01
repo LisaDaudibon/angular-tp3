@@ -9,9 +9,9 @@ import { Product } from '../model/product';
 export class ProductComponent {
   @Input({required: true}) data!: Product ;
 
-  @Output() totalSend = new EventEmitter<number>();
+  @Output() totalSend = new EventEmitter<Product>();
 
   addToBasket () {
-    this.totalSend.emit(this.data.price)
+    this.totalSend.emit(this.data)
   }
 }

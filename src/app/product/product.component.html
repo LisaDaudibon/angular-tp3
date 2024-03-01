@@ -1,6 +1,5 @@
 
-
-<div class="card h-100 text-center">
+<div class="card h-100 text-center " [ngClass]="{'last' : data.stock === 1 }">
     <img class="card-img-top" [src]="data.photo" alt="Product image" />
     <div class="card-header">
         <small>{{data.title}}</small>

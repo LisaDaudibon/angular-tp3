@@ -18,8 +18,12 @@ export class AppComponent {
   ]
 
   updatePrice (value: Product) : void {
-    value.stock -= 1
-    this.total = this.total + value.price;
+    if (value.stock) {
+      //product.stock = product.stock - 1;
+      value.stock -= 1;
+      // this.total = price + this.total;
+      this.total += value.price;
+    }
   }
 
   trackByProductId(index: number, product: Product) { return product.id }

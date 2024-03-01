@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Product } from './model/product';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -22,15 +23,30 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  describe('updatePrice', () => {
-    it (`should update the basket's total`, () => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.componentInstance;
-      expect(app.total).toBe(0);
-      app.updatePrice(50);
-      expect(app.total).toBe(50);
-    })
-  })
+  it('should update total', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+
+    const product: Product = { id: 0, description: '', photo: '', price: 50, stock: 1, title: '' }
+
+    expect(app.total).toBe(0);
+    app.updatePrice(product)
+    expect(app.total).toBe(50);
+    expect(product.stock).toBe(0);
+  });
+
+  it('should not decrement when stock is equal to 0', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+
+    const product: Product = { id: 0, description: '', photo: '', price: 50, stock: 0, title: '' }
+
+    expect(app.total).toBe(0);
+    app.updatePrice(product)
+    expect(app.total).toBe(0);
+    expect(product.stock).toBe(0);
+  });
+
   
 
   // it(`should have as title 'firstproject'`, () => {

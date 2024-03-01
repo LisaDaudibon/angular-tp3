@@ -24,7 +24,7 @@ Vous allez devoir peut-être revoir votre utilisation de \*ngFor. ;)
 
 ## 3 - ngClass
 
-Créez une classe **CSS** `last` et utilisez la directive **ngClass** pour l'ajouter sur l'élément avec la classe `thumbnail` si le **stock est égale à 1**.
+Créez une classe **CSS** `last` et utilisez la directive **ngClass** pour l'ajouter sur l'élément avec la classe `card` si le **stock est égale à 1**.
 
 Cette classe **changera la couleur de fond** en utilisant la propriété CSS :
 

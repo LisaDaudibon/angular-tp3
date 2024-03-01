@@ -4,14 +4,14 @@
 <main class="py-4 container">
   <header class="p-4 mb-4 bg-light rounded-3">
     <h1>Bienvenue sur Zenika Ecommerce</h1>
-    <p>Votre panier s'élève à {{total}} €</p>
+    <p>Votre panier s'élève à {{getTotal()}} €</p>
     <p class="mb-0"><a class="btn btn-primary btn-large">Voir mon panier</a></p>
   </header>
 
   <h2 class="h4">Catalogue</h2>
 
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    <ng-container *ngFor="let product of products; trackBy: trackByProductId">
+    <ng-container *ngFor="let product of getProducts(); trackBy: trackByProductId">
       <div *ngIf="product.stock" class="col">
         <app-product [data]="product" (totalSend)="updatePrice($event)"/>
       </div>

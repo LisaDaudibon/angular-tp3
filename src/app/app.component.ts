@@ -7,7 +7,6 @@ import { CustomerService } from './services/customer.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
-
 })
 export class AppComponent {
   constructor ( private _productService : ProductService, private _customerService : CustomerService ) {
@@ -15,6 +14,8 @@ export class AppComponent {
     this._customerService;
   }
 
+  sortKey: 'title' | 'price' | 'stock' = 'title'
+  
   updatePrice(product : Product ) {
     if (this._productService.isAvailable(product)) {
       this._productService.decreaseStock;

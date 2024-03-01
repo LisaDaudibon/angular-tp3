@@ -6,10 +6,10 @@
     </div>
     <div class="card-body">
         <h3 class="h6 card-title">
-            <a class="card-link">{{data.description}}</a>
+            <a class="card-link">{{data.description | uppercase}}</a>
         </h3>
         <p class="card-text">Stock : {{data.stock}}</p>
-        <p class="card-text">{{data.price}} €</p>
+        <p class="card-text">{{data.price | currency }} </p>
         <button class="btn btn-primary" (click)="addToBasket()">Ajoutez au panier</button>
     </div>
 </div>

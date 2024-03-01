@@ -10,14 +10,16 @@ import { Product } from './model/product';
 export class AppComponent {
   total : number = 0;
 
-  Products: Product[] = [
-    {photo: "/assets/coding-the-welsch.jpg", title: "Tee-shirt col rond - Homme", description: "Coding the welsch", price: 20 },
-    { photo: "/assets/coding-the-world.jpg", title: "Tee-shirt col rond - Homme", description:"Coding the world", price: 18 },
-    {photo:"/assets/coding-the-stars.jpg", title: "Tee-shirt col rond - Femme", description: "Duck Vador", price: 21},
-    {photo: "/assets/coding-the-snow.jpg", title: "Tee-shirt col rond - Femme", description: "Coding the snow", price: 19}
+  products: Product[] = [
+    { id: 0, photo: "/assets/coding-the-welsch.jpg", title: "Tee-shirt col rond - Homme", description: "Coding the welsch", price: 20},
+    { id: 1,  photo: "/assets/coding-the-world.jpg", title: "Tee-shirt col rond - Homme", description:"Coding the world", price: 18},
+    { id: 2, photo:"/assets/coding-the-stars.jpg", title: "Tee-shirt col rond - Femme", description: "Duck Vador", price: 21},
+    { id: 3, photo: "/assets/coding-the-snow.jpg", title: "Tee-shirt col rond - Femme", description: "Coding the snow", price: 19}
   ]
 
   updatePrice (value: number) : void {
     this.total = this.total + value;
   }
+
+  trackByProductId(index: number, product: Product) { return product.id }
 }

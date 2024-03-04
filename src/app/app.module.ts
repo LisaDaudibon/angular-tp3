@@ -10,6 +10,11 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { SortProductsPipe } from './pipes/sortProducts.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './views/home/home.component';
+import { BasketComponent } from './views/basket/basket.component';
+
+
 
 registerLocaleData((localeFr));;
 @NgModule({
@@ -17,7 +22,9 @@ registerLocaleData((localeFr));;
     AppComponent,
     MenuComponent,
     ProductComponent,
-    SortProductsPipe
+    SortProductsPipe,
+    HomeComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,

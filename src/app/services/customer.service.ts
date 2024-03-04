@@ -16,6 +16,8 @@ export class CustomerService {
 
   constructor(private _httpClient: HttpClient, private _productService: ProductService) { }
 
+  getBasket(): Basket { return this.basket}
+
   fetchBasket(): Observable<Basket> {
     return this._httpClient.get<Basket>(`${API_URL}/basket`)
       .pipe(
@@ -33,7 +35,8 @@ export class CustomerService {
     this._httpClient
     .post(`${API_URL}/basket`, { id: product.id })
     .subscribe(() => {console.log(`The product has been successfully added to the basket `)
-    this.basket.push(product)
+    this.basket.push({ id: product.id}) // possible de faire this.basket.push(product) <= va push tout le produit dans basket, 
+    // même si ça ne respecte pas le modèle car product possède un id
     this._productService.decreaseStock(product)
     })
   }

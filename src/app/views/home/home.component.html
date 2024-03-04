@@ -1,0 +1,26 @@
+
+    <header class="p-4 mb-4 bg-light rounded-3">
+        <h1>Bienvenue sur Zenika Ecommerce</h1>
+        <p>Votre panier s'élève à {{getTotal()}} €</p>
+        <p class="mb-0"><a class="btn btn-primary btn-large" routerLink="/basket">Voir mon panier</a></p>
+        <!-- <p class="mb-0"><a class="btn btn-primary btn-large">Voir mon panier</a></p> -->
+    </header>
+
+    <h2 class="h4">Catalogue</h2>
+
+    <div class="p-3">
+        Trier par : 
+        <button class="btn m-1" [ngClass]="sortKey === 'title' ? 'btn-primary' : 'btn-dark'"
+        (click)="sortKey = 'title'">Titre</button>
+        <button class="btn m-1" [ngClass]="sortKey === 'price' ? 'btn-primary' : 'btn-dark'"
+        (click)="sortKey = 'price'">Prix</button>
+        <button class="btn m-1" [ngClass]="sortKey === 'stock' ? 'btn-primary' : 'btn-dark'"
+        (click)="sortKey = 'stock'">Stock</button>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <ng-container *ngFor="let product of $products | async | sortProducts : sortKey ; trackBy: trackByProductId">
+            <div *ngIf="product.stock" class="col">
+                <app-product [data]="product" (totalSend)="updatePrice($event)"/>
+            </div>
+        </ng-container>
+    </div>

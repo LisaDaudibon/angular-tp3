@@ -21,7 +21,6 @@ export class AppComponent {
     this._customerService.fetchBasket().subscribe()
   }
 
-  
   sortKey: 'title' | 'price' | 'stock' = 'title'
   
   updatePrice(product : Product ) {

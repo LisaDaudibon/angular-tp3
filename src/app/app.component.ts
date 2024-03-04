@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from './model/product';
 import { ProductService } from './services/product.service';
 import { CustomerService } from './services/customer.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,15 @@ import { CustomerService } from './services/customer.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  $products: Observable<Product[]>;
+
+
   constructor ( private _productService : ProductService, private _customerService : CustomerService ) {
-    this._productService;
-    this._customerService;
+    this.$products = this._productService.fetchProducts();
   }
 
+  //Autre méthode dans clickup
+  
   sortKey: 'title' | 'price' | 'stock' = 'title'
   
   updatePrice(product : Product ) {
@@ -23,7 +28,8 @@ export class AppComponent {
     }
   }
 
-  getProducts () : Product[] { return this._productService.getProducts(); }
+  getProducts() : Product[] { 
+    return this._productService.getProducts(); }
 
   getTotal () : number { return this._customerService.getTotal(); }
 

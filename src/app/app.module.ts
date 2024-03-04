@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { SortProductsPipe } from './pipes/sortProducts.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData((localeFr));;
 @NgModule({
@@ -21,7 +22,8 @@ registerLocaleData((localeFr));;
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: navigator.language},

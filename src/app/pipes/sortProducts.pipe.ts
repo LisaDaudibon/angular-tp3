@@ -7,9 +7,9 @@ import { Product } from '../model/product';
 export class SortProductsPipe implements PipeTransform {
 
   
-  transform(products : Product[], sortingKey : 'title' | 'price' | 'stock'): Product[] {
-    return products.sort((leftKey, rightKey) => leftKey[sortingKey].toString()
-    .localeCompare(rightKey[sortingKey].toString()));
+  transform(products : Product[] | null, sortingKey : 'title' | 'price' | 'stock'): Product[] {
+    return products ? products.sort((leftKey, rightKey) => leftKey[sortingKey].toString()
+    .localeCompare(rightKey[sortingKey].toString())) : [];
   }
 
 }

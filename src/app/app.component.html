@@ -20,7 +20,7 @@
       (click)="sortKey = 'stock'">Stock</button>
   </div>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    <ng-container *ngFor="let product of getProducts() | sortProducts : sortKey ; trackBy: trackByProductId">
+    <ng-container *ngFor="let product of $products | async | sortProducts : sortKey ; trackBy: trackByProductId">
       <div *ngIf="product.stock" class="col">
         <app-product [data]="product" (totalSend)="updatePrice($event)"/>
       </div>

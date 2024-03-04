@@ -30,6 +30,10 @@ export class ProductService {
       return this._products;
   }
 
+  public getProductById (id: number) : Product | undefined {
+    return this._products.find( product => product.id === id)
+  }
+
   public isTheLast ( product : Product) : boolean { 
     return product.stock === 1;
   }

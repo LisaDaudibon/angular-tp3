@@ -1,0 +1,1 @@
+export type Basket = Array<{ id: number }>

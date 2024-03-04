@@ -12,18 +12,20 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   $products: Observable<Product[]>;
 
-
+  //Autre méthode dans clickup
   constructor ( private _productService : ProductService, private _customerService : CustomerService ) {
     this.$products = this._productService.fetchProducts();
   }
 
-  //Autre méthode dans clickup
+  ngOnInit(): void {
+    this._customerService.fetchBasket().subscribe()
+  }
+
   
   sortKey: 'title' | 'price' | 'stock' = 'title'
   
   updatePrice(product : Product ) {
     if (this._productService.isAvailable(product)) {
-      this._productService.decreaseStock;
       this._customerService.addProduct(product);
     }
   }

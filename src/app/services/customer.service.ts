@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { ProductService } from './product.service';
 import { Basket } from '../model/basket';
 import { Observable, tap } from 'rxjs';
+import { Customer } from '../model/customer';
+import { Router } from '@angular/router';
 
 const API_URL :string = "http://localhost:8080/rest"
 
@@ -14,7 +16,7 @@ export class CustomerService {
   private _total : number = 0;
   public basket: Basket = [];
 
-  constructor(private _httpClient: HttpClient, private _productService: ProductService) { }
+  constructor(private _httpClient: HttpClient, private _productService: ProductService, private _router: Router) { }
 
   getBasket(): Basket { return this.basket}
 
@@ -46,5 +48,14 @@ export class CustomerService {
       const productFound = this._productService.getProductById(currentProduct.id)
       return productFound?.price ? productFound.price + total : total
     }, 0);
+  }
+
+  checkout (customer: Customer ): void {
+    this._httpClient.post(`${API_URL}/basket/confirm`, customer)
+      .subscribe(() => {
+        console.log(`The command has been confirmed`);
+        console.log("coucou");
+
+      })
   }
 }

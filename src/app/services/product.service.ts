@@ -28,6 +28,10 @@ export class ProductService {
       // .subscribe(product => this._products = product)
   }
 
+  public fetchProductById(id: number) : Observable<Product> {
+    return this._httpClient.get<Product>(`${API_URL}/products/${id}`)
+  }
+
   public getProducts () : Product[] { 
       return this._products;
   }

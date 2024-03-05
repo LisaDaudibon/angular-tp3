@@ -1,12 +1,10 @@
 <h1>Panier</h1>
 
-
-
 <p >Votre panier s'élève à {{getTotal()}} €</p>
 <p class="mb-0"><a class="btn btn-primary btn-large" routerLink="">Retourner à l'accueil</a></p>
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-    <div *ngFor="let product of getProducts() " class="col">
+    <div *ngFor="let product of $forAllBasketProducts | async; trackBy: trackByProductId" class="col">
         <app-product [data]="product"/>
     </div>
 </div>

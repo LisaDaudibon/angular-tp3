@@ -22,7 +22,9 @@ export class ProductService {
   
   public fetchProducts () : Observable<Product[]> {
     return this._httpClient.get<Product[]>(`${API_URL}/products`)
-      .pipe(tap((products) => this._products = products))
+      .pipe(
+        tap((products) => this._products = products)
+        )
       // .subscribe(product => this._products = product)
   }
 
